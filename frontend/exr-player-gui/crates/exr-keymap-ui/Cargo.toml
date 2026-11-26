@@ -1,0 +1,12 @@
+[package]
+name = "exr-keymap-ui"
+version = "0.1.0"
+edition = "2021"
+description = "egui Keymapping Editor, control palette, interactive canvas overlay, and properties panel"
+
+[dependencies]
+eframe = { version = "=0.37.0", default-features = false }
+exr-input = { path = "../exr-input" }
+exr-keymap = { path = "../exr-keymap" }
+exr-macro = { path = "../exr-macro" }
+exr-smart-controls = { path = "../exr-smart-controls" }

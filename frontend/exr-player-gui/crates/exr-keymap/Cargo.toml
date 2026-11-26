@@ -1,0 +1,10 @@
+[package]
+name = "exr-keymap"
+version = "0.1.0"
+edition = "2021"
+description = "Versioned keymap profile schema, coordinate mapping, binding resolver, validation, and undo/redo"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+exr-input = { path = "../exr-input" }

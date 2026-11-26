@@ -1,0 +1,46 @@
+{
+  "schema-version": 1,
+  "engine": {
+    "architecture": "x86_64",
+    "acceleration": "auto",
+    "memory": "768M",
+    "cpu": "max",
+    "machine": "pc",
+    "smp": 2,
+    "profile": "low-mem-2gb",
+    "balloon": true,
+    "inputs": true,
+    "display": "auto",
+    "vgamem-mb": 32
+  },
+  "storage": {
+    "path": "system.exrimg",
+    "format": "exrimg",
+    "interface": "virtio",
+    "size": "16G"
+  },
+  "extra-storage": [
+    {
+      "path": "userdata.exrimg",
+      "format": "exrimg",
+      "interface": "virtio",
+      "size": "8G"
+    }
+  ],
+  "shared-folder": {
+    "path": "./shared",
+    "readonly": true
+  },
+  "audio": {
+    "backend": "auto"
+  },
+  "networking": {
+    "backend": "auto",
+    "adb-port": 5555
+  },
+  "runtime": {
+    "socket": "unix:exr-x86.sock",
+    "pidfile": "exr-x86.pid",
+    "serial": "stdio"
+  }
+}

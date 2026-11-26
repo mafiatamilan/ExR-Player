@@ -1,0 +1,11 @@
+[package]
+name = "exr-aim"
+version = "0.1.0"
+edition = "2021"
+description = "FPS shooting mode, relative mouse camera, crosshair aim, free look, and MOBA skill casting"
+
+[dependencies]
+exr-input = { path = "../exr-input" }
+exr-keymap = { path = "../exr-keymap" }
+exr-gestures = { path = "../exr-gestures" }
+exr-android-bridge = { path = "../exr-android-bridge" }

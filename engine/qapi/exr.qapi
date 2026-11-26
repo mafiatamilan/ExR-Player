@@ -1,0 +1,62 @@
+{ 'enum': 'ExRAcceleration', 'data': ['auto', 'tcg', 'kvm', 'whpx', 'hvf'] }
+{ 'enum': 'ExRMachine', 'data': ['pc', 'q35'] }
+{ 'enum': 'ExRDisplay', 'data': ['none', 'auto', 'virtio-gpu', 'virtio-gpu-gl'] }
+{ 'enum': 'ExRStorageFormat', 'data': ['exrimg', 'raw'] }
+{ 'enum': 'ExRStorageInterface', 'data': ['virtio'] }
+{ 'enum': 'ExRNetworkBackend', 'data': ['auto', 'user', 'none'] }
+{ 'enum': 'ExRSerial', 'data': ['stdio', 'null'] }
+{ 'enum': 'ExRMemoryProfile', 'data': ['standard', 'low-mem-2gb', 'minimal'] }
+{ 'enum': 'ExRAudioBackend', 'data': ['none', 'wav', 'auto'] }
+
+{ 'struct': 'ExRBootConfig',
+  'data': { '*kernel': 'str',
+            '*initrd': 'str',
+            '*cmdline': 'str' } }
+
+{ 'struct': 'ExREngineConfig',
+  'data': { 'architecture': 'str',
+            'acceleration': 'ExRAcceleration',
+            'memory': 'str',
+            '*cpu': 'str',
+            '*machine': 'ExRMachine',
+            '*smp': 'uint16',
+            'display': 'ExRDisplay',
+            '*vgamem-mb': 'uint16',
+            '*profile': 'ExRMemoryProfile',
+            '*tb-size': 'str',
+            '*balloon': 'bool',
+            '*inputs': 'bool' } }
+
+{ 'struct': 'ExRStorageConfig',
+  'data': { 'path': 'str',
+            'format': 'ExRStorageFormat',
+            'interface': 'ExRStorageInterface',
+            '*size': 'str' } }
+
+{ 'struct': 'ExRSharedFolderConfig',
+  'data': { 'path': 'str',
+            '*readonly': 'bool' } }
+
+{ 'struct': 'ExRAudioConfig',
+  'data': { 'backend': 'ExRAudioBackend',
+            '*wav-path': 'str' } }
+
+{ 'struct': 'ExRNetworkConfig',
+  'data': { 'backend': 'ExRNetworkBackend',
+            '*adb-port': 'uint16' } }
+
+{ 'struct': 'ExRRuntimeConfig',
+  'data': { '*socket': 'str',
+            '*pidfile': 'str',
+            '*serial': 'ExRSerial' } }
+
+{ 'struct': 'ExRConfig',
+  'data': { 'schema-version': 'int',
+            'engine': 'ExREngineConfig',
+            '*storage': 'ExRStorageConfig',
+            '*extra-storage': ['ExRStorageConfig'],
+            '*shared-folder': 'ExRSharedFolderConfig',
+            '*audio': 'ExRAudioConfig',
+            '*networking': 'ExRNetworkConfig',
+            '*runtime': 'ExRRuntimeConfig',
+            '*boot': 'ExRBootConfig' } }

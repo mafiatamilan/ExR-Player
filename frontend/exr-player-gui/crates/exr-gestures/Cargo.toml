@@ -1,0 +1,10 @@
+[package]
+name = "exr-gestures"
+version = "0.1.0"
+edition = "2021"
+description = "Multi-touch slot allocator, WASD/D-pad, analog joystick, repeated tap, swipe, and pinch/zoom"
+
+[dependencies]
+exr-input = { path = "../exr-input" }
+exr-keymap = { path = "../exr-keymap" }
+exr-android-bridge = { path = "../exr-android-bridge" }

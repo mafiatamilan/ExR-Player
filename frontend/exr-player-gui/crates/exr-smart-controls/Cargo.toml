@@ -1,0 +1,10 @@
+[package]
+name = "exr-smart-controls"
+version = "0.1.0"
+edition = "2021"
+description = "Optional context-aware keymapping state machine and template recognizer"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+exr-input = { path = "../exr-input" }
+exr-keymap = { path = "../exr-keymap" }

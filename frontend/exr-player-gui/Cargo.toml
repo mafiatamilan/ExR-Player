@@ -1,0 +1,49 @@
+[package]
+name = "exr-player"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.95"
+description = "ExR Player & Multi-Instance Manager — Android emulator front-end (egui)"
+
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[[bin]]
+name = "exr-player"
+path = "src/main.rs"
+
+[[bin]]
+name = "exr-multi"
+path = "src/multi.rs"
+
+[dependencies]
+eframe = { version = "=0.37.0", default-features = false, features = ["glow", "persistence", "default_fonts", "x11", "wayland"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+directories = "5"
+anyhow = "1"
+image = { version = "0.25", default-features = false, features = ["png"] }
+rfd = "0.15"
+exr-input = { path = "crates/exr-input" }
+exr-keymap = { path = "crates/exr-keymap" }
+exr-android-bridge = { path = "crates/exr-android-bridge" }
+exr-gestures = { path = "crates/exr-gestures" }
+exr-aim = { path = "crates/exr-aim" }
+exr-gamepad = { path = "crates/exr-gamepad" }
+exr-macro = { path = "crates/exr-macro" }
+exr-smart-controls = { path = "crates/exr-smart-controls" }
+exr-keymap-ui = { path = "crates/exr-keymap-ui" }
+
+[target.'cfg(windows)'.build-dependencies]
+winres = "0.1"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev.package."*"]
+opt-level = 2

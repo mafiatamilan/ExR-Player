@@ -1,0 +1,12 @@
+[package]
+name = "exr-gamepad"
+version = "0.1.0"
+edition = "2021"
+description = "Gamepad axis/button mapping, deadzones, response curves, and hot-plug state"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+exr-input = { path = "../exr-input" }
+exr-keymap = { path = "../exr-keymap" }
+exr-gestures = { path = "../exr-gestures" }
+exr-android-bridge = { path = "../exr-android-bridge" }
