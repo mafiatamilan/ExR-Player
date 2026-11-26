@@ -25,9 +25,22 @@ pub fn paint(p: &Painter, icon: Icon, rect: Rect, color: Color32) {
             line((8., 4.), (20., 4.)); line((20., 4.), (20., 16.));
         }
         Icon::Close => { line((5., 5.), (19., 19.)); line((19., 5.), (5., 19.)); }
-        Icon::Back => { line((16., 5.), (7., 12.)); line((7., 12.), (16., 19.)); line((16., 19.), (16., 5.)); }
-        Icon::Home => { p.circle_stroke(pt(12., 12.), 6.5 * s, st); }
-        Icon::Recents => { p.rect_stroke(Rect::from_min_max(pt(5., 5.), pt(19., 19.)), 2.5 * s, st, eframe::egui::StrokeKind::Inside); }
+        Icon::Back => {
+            line((15.5, 5.5), (8.0, 12.0));
+            line((8.0, 12.0), (15.5, 18.5));
+        }
+        Icon::Home => {
+            line((12.0, 4.5), (4.0, 11.5));
+            line((12.0, 4.5), (20.0, 11.5));
+            line((6.5, 10.0), (6.5, 19.5));
+            line((6.5, 19.5), (17.5, 19.5));
+            line((17.5, 19.5), (17.5, 10.0));
+        }
+        Icon::Recents => {
+            p.rect_stroke(Rect::from_min_max(pt(4.5, 7.5), pt(16.5, 19.5)), 2.5 * s, st, eframe::egui::StrokeKind::Inside);
+            line((8.5, 4.5), (19.5, 4.5));
+            line((19.5, 4.5), (19.5, 15.5));
+        }
         Icon::Gear => {
             p.circle_stroke(pt(12., 12.), 3.0 * s, st);
             p.circle_stroke(pt(12., 12.), 6.8 * s, st);
